@@ -1,4 +1,4 @@
-name: CI
+name: Shopify Lighthouse CI
 on: [push]
 jobs:
   lhci:
@@ -9,9 +9,8 @@ jobs:
       - name: Lighthouse
         uses: shopify/lighthouse-ci-action@v1
         with:
-          store: ${{ secrets.SHOP_STORE_OS2 }}
-          password: ${{ secrets.SHOP_PASSWORD_OS2 }}
+          store: ${{ secrets.SHOP_STORE }}
           access_token: ${{ secrets.SHOP_ACCESS_TOKEN }}
-          product_handle: puppy
-          collection_handle: all
-          lhci_github_app_token: ${{ secrets.LHCI_GITHUB_TOKEN }}
+          lhci_github_app_token: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+          lhci_min_score_performance: 0.9
+          lhci_min_score_accessibility: 0.9
